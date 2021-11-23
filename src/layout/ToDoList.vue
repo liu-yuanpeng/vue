@@ -1,52 +1,37 @@
 <template>
-  <van-nav-bar title="待调度" fixed="true" placeholder="true" />
+  <van-nav-bar title="待调度" :fixed="true" :placeholder="true" />
 
-  <!-- <van-notice-bar left-icon="volume-o" :scrollable="false" color="#1989fa" background="#ecf9ff" mode="closeable">
-  <van-swipe vertical class="notice-swipe" :autoplay="2000" :show-indicators="false">
-    <van-swipe-item>在代码衡量代码质量的唯一标准。</van-swipe-item>
-    <van-swipe-item>技术是开发它的人的共同灵魂。</van-swipe-item>
-    <van-swipe-item>有任何使用问题联系：刘元鹏17600901722</van-swipe-item>
-  </van-swipe>
-</van-notice-bar> -->
-
-  <van-list
-    v-model:loading="loading"
-    :finished="finished"
-    finished-text="没有更多了"
-    @load="onLoad"
+  <van-notice-bar
+    left-icon="volume-o"
+    :scrollable="false"
+    color="#1989fa"
+    background="#ecf9ff"
+    mode="closeable"
   >
+    <van-swipe vertical class="notice-swipe" :autoplay="2000" :show-indicators="false">
+      <van-swipe-item>技术是开发它的人的共同灵魂。</van-swipe-item>
+      <van-swipe-item>有任何使用问题联系：刘元鹏17600901722</van-swipe-item>
+    </van-swipe>
+  </van-notice-bar>
+  <van-search
+  v-model="value"
+  shape="round"
+  background="#4fc08d"
+  placeholder="请输入搜索关键词"
+/>
+  <van-swipe class="my-swipe" :autoplay="3000" indicator-color="white">
+    <van-swipe-item>1</van-swipe-item>
+    <van-swipe-item>2</van-swipe-item>
+    <van-swipe-item>3</van-swipe-item>
+    <van-swipe-item>4</van-swipe-item>
+  </van-swipe>
+  <van-list v-model:loading="loading" :finished="finished" finished-text="没有更多了" @load="onLoad">
     <van-skeleton :row="10" :loading="loading">
-      <!-- <van-checkbox-group v-model="checked">
-        <van-cell-group inset v-for="item in list" :key="item" title>
-          <van-cell
-            v-for="(item, index) in list"
-            clickable
-            :key="item"
-            :title="`复选框`"
-            @click="toggle(index)"
-          >
-            <template #right-icon>
-              <van-checkbox
-                :name="item"
-                :ref="(el) => (checkboxRefs[index] = el)"
-                @click.stop
-              />
-            </template>
-          </van-cell>
-        </van-cell-group>
-      </van-checkbox-group> -->
-
-      <van-cell-group inset v-for="item in list" :key="item" title="分组">
+      <van-cell-group inset v-for="item in list" :key="item">
         <van-cell center title="单元格" value="内容" icon="location-o">
           <van-tag type="success">标签</van-tag>
         </van-cell>
-        <!-- <van-cell title="单元格" value="内容" label="描述信息" /> -->
-        <van-image
-          width="10rem"
-          height="10rem"
-          fit="contain"
-          src="https://img.yzcdn.cn/vant/cat.jpeg"
-        />
+        <van-divider dashed>文字</van-divider>
       </van-cell-group>
     </van-skeleton>
   </van-list>
@@ -103,4 +88,16 @@ export default {
 }
 </style>
 
- 
+ <style>
+.my-swipe .van-swipe-item {
+  color: rgb(51, 51, 51);
+  font-size: 20px;
+  line-height: 150px;
+  text-align: center;
+  background-color: #39a9ed;
+}
+:root {
+  --van-nav-bar-background-color: #dadada !important;
+  --van-nav-bar-title-text-color: #4e4e4e !important;
+}
+</style>

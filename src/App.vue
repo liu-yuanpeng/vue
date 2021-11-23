@@ -1,10 +1,8 @@
 <template>
 <router-view></router-view>
-<van-tabbar v-model="active">
+<van-tabbar  v-model="active" :placeholder="true" :fixed="true">
   <van-tabbar-item icon="todo-list-o" badge="100" to="/todolist" >待办</van-tabbar-item>
-
   <van-tabbar-item icon="setting-o" to="/500">标签</van-tabbar-item>
-
   <van-tabbar-item badge="3" to="/">
     <span>我的</span>
     <template #icon="props">
@@ -40,10 +38,11 @@ body {
   margin: 0;
 
   font-family: Avenir, Helvetica, Arial, sans-serif;
-background:#f3f3f3;
+background:#e7e7e7;
 }
 #nprogress .bar {
   /*自定义进度条颜色*/
   background: #a4e05e !important;
 }
+
 </style>
